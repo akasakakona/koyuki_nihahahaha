@@ -26,6 +26,15 @@
             drop-shadow(2px -2px 0 white)
             drop-shadow(-2px -2px 0 white);
         }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0px;
+        }
         .enlarged {
             transform: scale(10);
             z-index: 1000;
@@ -37,15 +46,7 @@
             transition: transform 0.3s ease;
         }
         .stroke {
-            text-shadow:
-            2px 2px 0 white,
-            -2px 2px 0 white,
-            2px -2px 0 white,
-            -2px -2px 0 white,
-            2px 0 0 white,
-            -2px 0 0 white,
-            0 2px 0 white,
-            0 -2px 0 white;
+            text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
         }
     </style>
     <link rel="icon" href="favicon.jpg" type="image/x-icon">
@@ -100,4 +101,15 @@
         });
     </script>
 </body>
+<footer>
+    <span class="stroke">&copy; <span id="year"></span> Koyuki Nihahahaha. All rights NOT reserved.</span>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <span class="stroke">Partner Site: <a href="https://izuna.moe" target="_blank">Izuna Nin Nin!</a></span>
+    <div style="margin-top: 20px;">
+        <span class="stroke">Hosted on <a href="https://github.com/akasakakona/koyuki_nihahahaha" target="_blank">GitHub Pages</a>.</span>        
+    </div>
+    <span class="stroke">Go play <a href="https://store.steampowered.com/app/3557620/Blue_Archive/" target="_blank">Blue Archive</a> if you haven't already!</span>
+</footer>
 </html>

@@ -14,10 +14,17 @@
             background: #f5f5f5;
             margin-left: 30px;
             margin-right: 30px;
+            background-image: url("asset/koyuki_lobby.png");
+            background-repeat: repeat; /* Prevent tiling */
+            background-position: center;  /* Center the image */
         }
         img {
             max-width: 300px;
             cursor: pointer;
+              filter: drop-shadow(2px 2px 0 white)
+            drop-shadow(-2px 2px 0 white)
+            drop-shadow(2px -2px 0 white)
+            drop-shadow(-2px -2px 0 white);
         }
         .enlarged {
             transform: scale(10);
@@ -29,6 +36,17 @@
             z-index: 1;
             transition: transform 0.3s ease;
         }
+        .stroke {
+            text-shadow:
+            2px 2px 0 white,
+            -2px 2px 0 white,
+            2px -2px 0 white,
+            -2px -2px 0 white,
+            2px 0 0 white,
+            -2px 0 0 white,
+            0 2px 0 white,
+            0 -2px 0 white;
+        }
     </style>
     <link rel="icon" href="favicon.jpg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,16 +54,17 @@
     <meta name="keywords" content="Koyuki, Blue Archive">
 </head>
 <body>
-    <h1>I have hired this Koyuki to stare at you.</h1>
+    <h1 class="stroke">I have hired this Koyuki to stare at you.</h1>
     <!-- Image -->
-    <img src="asset/koyuki.png" alt="Click me!" id="playImage">
+    <img src="asset/koyuki.png" alt="Nihahahahaha!" id="Nihaha">
 
-    <b>Click her.</b>
+    <b class="stroke">Click her.</b>
+    <b class="stroke">(Preferably with sound on.)</b>
     <!-- Empty audio element -->
     <audio id="audio"></audio>
 
     <script>
-        const img = document.getElementById("playImage");
+        const img = document.getElementById("Nihaha");
         const audio = document.getElementById("audio");
 
         // List of local audio files
@@ -77,7 +96,6 @@
             audio.src = randomFile;
             audio.currentTime = 0;
             audio.play();
-
             
         });
     </script>

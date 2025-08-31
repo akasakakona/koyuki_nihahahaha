@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Audio Player</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        img {
+            max-width: 300px;
+            cursor: pointer;
+        }
+        .enlarged {
+            transform: scale(10);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .return {
+            transform: scale(1);
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>I have hired this Koyuki to stare at you.</h1>
+    <!-- Image -->
+    <img src="asset/koyuki.png" alt="Click me!" id="playImage">
+
+    <b>Click her.</b>
+    <!-- Empty audio element -->
+    <audio id="audio"></audio>
+
+    <script>
+        const img = document.getElementById("playImage");
+        const audio = document.getElementById("audio");
+
+        // List of local audio files
+        const audioFiles = [
+            "asset/audio/Koyuki_Battle_Defence_1.mp3",
+            "asset/audio/Koyuki_Growup_2.mp3",
+            "asset/audio/Koyuki_CommonSkill.mp3",
+            "asset/audio/Koyuki_Growup_4.mp3",
+            "asset/audio/Koyuki_GachaGet.mp3",
+            "asset/audio/Koyuki_Season_Birthday.mp3",
+            "asset/audio/Koyuki_Growup_1.mp3",
+            "asset/audio/Koyuki_Season_Halloween_1_2.mp3"
+        ];
+
+        img.addEventListener("click", () => {
+            
+            img.classList.remove("return");
+            img.classList.add("enlarged");
+
+            // Pick a random file
+            const randomFile = audioFiles[Math.floor(Math.random() * audioFiles.length)];
+            
+            audio.onended = () => {
+                img.classList.remove("enlarged");
+                img.classList.add("return");
+            };
+
+            // Set audio source
+            audio.src = randomFile;
+            audio.currentTime = 0;
+            audio.play();
+
+            
+        });
+    </script>
+</body>
+</html>
